@@ -20,5 +20,7 @@
 ７.解散
 
 ８.通信網設計図　入電方式
+
 http://rb.toki.fun/wannatellyous/new
+
 伝えたいことについてWebページを作成し、ここにLinkを投入してください
