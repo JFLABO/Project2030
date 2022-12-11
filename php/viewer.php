@@ -1,6 +1,7 @@
 <?php
 //JSONオブジェクトをバインドして表示するロジック　基本設計
 //JSONファイルをバインド　それを読み込み表示する　サイトマップ自動生成
+bind="../data/filenme.json";
 ?>
 <!DOCTYPE html>
 <html lang="en">
