@@ -54,22 +54,6 @@ bind="../data/filenme.json";
   <span id="date">経営管理コード</span>
 </div><BR>
 <a href="list.php" class="ui-btn" data-ajax="false">一覧</a>
-
-<!--
-<input type="text"><BR>
-<button id="send">たーのしー！</button>
--->
-<?php
-/*
-foreach (glob("/var/www/html/jlog/data/*.json") as $filename) {
-echo "<a href='index.php?u=";
-echo $filename;
-echo "' data-ajax='false'>";
-         echo $filename;
-         echo "</a><br/><br/>";
-}
-*/
-?>
   </div>
 
   <div data-role="footer">
