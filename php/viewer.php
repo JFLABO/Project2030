@@ -3,6 +3,9 @@
 //JSONファイルをバインド　それを読み込み表示する　サイトマップ自動生成
 $bind="../data/filenme.json";
 //JSONをパース
+$json = file_get_contents($bind);
+$json = mb_convert_encoding($json, 'UTF8', 'ASCII,JIS,UTF-8,EUC-JP,SJIS-WIN');
+$arr = json_decode($json,true);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -44,7 +47,11 @@ $bind="../data/filenme.json";
     padding: 0;
 }
 </style>
-  <?php //JSONを表示 ?>
+  <?php //JSONを表示 
+  //echo $arr['res']['blogData']['id'];
+  //echo $arr->res->blogData->id;
+
+  ?>
   <span id="title">ここに文章</span>
   <HR>
   <span id="contents">ここに文章</span>
