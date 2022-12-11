@@ -52,7 +52,8 @@ $arr = json_decode($json,true);
   //echo $arr->res->blogData->id;
 
   ?>
-  <span id="title">ここに文章</span>
+  <span id="title"><?php //JSONを表示 
+  echo $arr['title'];?></span>
   <HR>
   <span id="contents">ここに文章</span>
   <HR>
