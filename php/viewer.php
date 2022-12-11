@@ -16,7 +16,7 @@ $bind="../data/filenme.json";
 <body>
 
 <!--ページ領域-->
-<div data-role="page" data-title="jQuery Mobile TIPS">
+<div data-role="page" data-title="たびれぽ福分け取材班 TIPS">
 
   <!--ヘッダー領域-->
   <div data-role="header">
