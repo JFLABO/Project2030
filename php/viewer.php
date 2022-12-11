@@ -2,6 +2,7 @@
 //JSONオブジェクトをバインドして表示するロジック　基本設計
 //JSONファイルをバインド　それを読み込み表示する　サイトマップ自動生成
 $bind="../data/filenme.json";
+//JSONをパース
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -43,6 +44,7 @@ $bind="../data/filenme.json";
     padding: 0;
 }
 </style>
+  <?php //JSONを表示 ?>
   <span id="title">ここに文章</span>
   <HR>
   <span id="contents">ここに文章</span>
