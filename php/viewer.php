@@ -1,10 +1,11 @@
 <?php
 //JSONオブジェクトをバインドして表示するロジック　基本設計
 //JSONファイルをバインド　それを読み込み表示する　サイトマップ自動生成
-$bind="../data/filenme.json";
+//$bind="../data/filenme.json";
+$bind="./data/136-0071_2-13-12_2022121209:28:38.json";
 //JSONをパース
 $json = file_get_contents($bind);
-$json = mb_convert_encoding($json, 'UTF8', 'ASCII,JIS,UTF-8,EUC-JP,SJIS-WIN');
+//$json = mb_convert_encoding($json, 'UTF8', 'ASCII,JIS,UTF-8,EUC-JP,SJIS-WIN');
 $arr = json_decode($json,true);
 ?>
 <!DOCTYPE html>
@@ -47,21 +48,24 @@ $arr = json_decode($json,true);
     padding: 0;
 }
 </style>
-  <?php //JSONを表示 
+  <?php //JSONを表示
   //echo $arr['res']['blogData']['id'];
   //echo $arr->res->blogData->id;
 
   ?>
-  <span id="title"><?php //JSONを表示 
+  <span id="title"><?php //JSONを表示
   echo $arr['title'];?></span>
   <HR>
-  <span id="contents">ここに文章</span>
+  <span id="contents"><?php //JSONを表示
+  echo $arr['content'];?></span>
   <HR>
-  <span id="project">ここに文章</span>
+  <span id="project"><?php //JSONを表示
+  echo $arr['project'];?></span>
   <HR>
   <span id="kanri">経営管理コード</span>
   <HR>
-  <span id="date">経営管理コード</span>
+  <span id="date"><?php //JSONを表示
+  echo $arr['date'];?></span>
 </div><BR>
 <a href="list.php" class="ui-btn" data-ajax="false">一覧</a>
   </div>
