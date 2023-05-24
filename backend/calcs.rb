@@ -3,7 +3,7 @@
 require "csv"
 
 sum=0
-CSV.foreach("data/.dat", col_sep: "\t", headers: false) do |row|
+CSV.foreach("data/data2023.dat", col_sep: "\t", headers: false) do |row|
     # 行に対する処理
     p row
         sum=sum+row[1].to_i
