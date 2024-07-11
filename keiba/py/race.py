@@ -20,6 +20,7 @@
 #マウスをカチカチするだけで処理が進む仕組みになってるとか
 #マウスで選ぶと仕事が進む感じに計画してという依頼でそうなりました。
 #1990年代のPC競馬ブームがあったのは事実です。
+#これはテンキーだけで競馬情報を調べるソフトです。
 import datetime
 import subprocess
 t_delta = datetime.timedelta(hours=9)
