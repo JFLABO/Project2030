@@ -9,3 +9,5 @@ VOS/ONE
 IBM（AIX)
 
 HP-UX
+
+当社ではJP1推薦ソフトを用いる規則になっている
