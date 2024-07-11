@@ -7,3 +7,5 @@ VOS/K
 VOS/ONE
 
 IBM（AIX)
+
+HP-UX
