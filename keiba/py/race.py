@@ -1,1 +1,106 @@
+import datetime
+import subprocess
+t_delta = datetime.timedelta(hours=9)
+JST = datetime.timezone(t_delta, 'JST')
+now = datetime.datetime.now(JST)
+import re
+command = 'clear'
+ret = subprocess.run(command, shell=True)
+#print(ret)
+#日付
+y = now.strftime('%Y')
+d = now.strftime('%m%d')
+print(d)
+print("これは生涯競馬を楽しむ目的のあるシステムです。")
+print("1/2 競馬場コード2桁を入れてください。")
+print("金沢：46 笠松：47 園田：50 名古屋：48")
+code= input("")
 
+print("2/2 レース番号2桁を入れてください。")
+RNO= input("")
+
+#print("race_idを入力してください")
+#race_id = input("")
+race_id=y+code+d+RNO
+print(race_id)
+#race_id = "202254110511"
+#race_id  = "20240625431"
+url = f"https://nar.netkeiba.com/odds/index.html?type=b1&race_id={race_id}"
+import requests
+from bs4 import BeautifulSoup
+print("////////////////////////////////////////////////////////////")
+
+response = requests.get(url)
+#soup = BeautifulSoup(response.content)
+soup = BeautifulSoup(response.content,'html5lib')
+title = soup.find('div', attrs={'class': 'RaceName'})
+#print(title)
+p = re.compile("<[^>]*?>")
+tag_str = str(title)
+s=p.sub("", tag_str)
+print(s.replace('\n',''))
+#result = re.sub(r'[ \t]*<.+?>', "", title)
+#print(result)
+#print(title.replace('<div',''))
+#print(title.replace('\n', ''))
+data = soup.find('div', attrs={'class': 'RaceData01'})
+
+#p = re.compile(r"<[^>]*?>")
+#tag_str = data
+#p.sub("", tag_str)
+#print(data)
+p = re.compile("<[^>]*?>")
+tag_str = str(data)
+s=p.sub("", tag_str)
+#print(s)
+s=s.replace('?','')
+print(s.replace('\n',''))
+
+odds_tan_block = soup.find('div', attrs={'id': 'odds_tan_block'})
+trs = odds_tan_block.find_all('tr')
+arr=[]
+arr1={}
+arr2={}
+#print(arr)
+try:
+    for n, tr in enumerate(trs):
+        if n == 0:
+            continue
+        horse_name = tr.find("td", attrs={"class": "Horse_Name"}).text
+        odds = float(tr.find("td", attrs={"class": "Odds"}).text)
+        #    print( horse_name , odds)
+        #print(n,"\t" , horse_name,"\t\t" ,odds)
+        arr.append(horse_name)
+        arr1[n]=horse_name
+        arr2[n]=odds
+
+except AttributeError:
+     print("データを取得できませんでした。")
+
+#print(arr1)
+#print(arr2)
+"""
+student_name_list = ["山田　一郎", "鈴木　次郎", "佐藤　ゴンザレスモリモリマッスル花子"]
+"""
+
+name_len_max = 10 # プリントできる最大の文字列
+i=1
+f = open('query/'+race_id+'.txt', 'w')
+f.write("NO" +","+"os"+","+"name"+"\n")
+
+syouryaku_str = "..."
+for student_name in arr:
+    if len(student_name) > name_len_max:
+        name_print = student_name[:name_len_max-len(syouryaku_str)] + syouryaku_str
+    else:
+        name_print = student_name
+    print(i,"\t",arr2[i],"\t",name_print)
+    f.write(str(i) +","+str(arr2[i])+","+name_print+"\n")
+    i=i+1
+f.close()
+print("//////////////////////(C)JFLABO/////////////////////////////")
+
+print('年度:',race_id[0:4],'\t競馬場：',race_id[4:6],'\t日付',race_id[6:10],'\tR:',race_id[10:12])
+print("////////////////////////////////////////////////////////////")
+command = 'python3 sort.py ~/query/'+race_id+".txt"
+ret = subprocess.run(command, shell=True)
