@@ -18,6 +18,7 @@
 #目的の機能を呼び出すと記載します。Windowsはダブルクリックで全部できるような設計も流行しました。
 #Windowsはキーボードだけでも操作ができるように工夫されてるとか
 #マウスをカチカチするだけで処理が進む仕組みになってるとか
+#マウスで選ぶと仕事が進む感じに計画してという依頼でそうなりました。
 import datetime
 import subprocess
 t_delta = datetime.timedelta(hours=9)
