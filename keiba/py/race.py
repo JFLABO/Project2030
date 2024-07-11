@@ -6,6 +6,7 @@
 #膨大な競走馬データを簡単に扱う処理をしたソフトです。
 #レースに出る馬の名前を調べるソフトで数字とエンターキーだけで操作します。
 #レイース開催日程の10分前までオッズなどはリアルタイムに変化します。
+#Pythonベースのスクレイピングという技法を用いています。
 import datetime
 import subprocess
 t_delta = datetime.timedelta(hours=9)
